@@ -176,3 +176,17 @@ const winCalc = (winner) => {
         playerTwoTotalWins = playerTwoTotalWins + 1;
     }
 }
+
+// Main function - create computer moves
+const setComputerMoves = () => {
+    const validMoves = ["rock","paper","scissors"];
+    const moveOneType = validMoves[Math.floor(Math.random() * 3)];
+    const moveTwoType = validMoves[Math.floor(Math.random() * 3)];
+    const moveThreeType = validMoves[Math.floor(Math.random() * 3)];
+
+    const moveOneValue = Math.floor(Math.random() * 96) + 1;
+    const moveTwoValue = Math.floor(Math.random() * (97 - moveOneValue)) + 1;
+    const moveThreeValue = 99 - moveOneValue - moveTwoValue;
+
+    setPlayerMoves("Player Two",moveOneType,moveOneValue,moveTwoType,moveTwoValue,moveThreeType,moveThreeValue);
+}
