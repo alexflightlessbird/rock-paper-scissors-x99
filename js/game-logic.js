@@ -18,23 +18,23 @@ let playerOneMoveOneType,
 // Main function - set variables based on input
 const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue) => {
     if (!player || !moveOneType || !moveOneValue || !moveTwoType || !moveTwoValue || !moveThreeType || !moveThreeValue) {
-        return null;
         console.log("All values must be filled in.");
+        return null;
     }
 
     if (!validMoveType(moveOneType) || !validMoveType(moveTwoType) || !validMoveType(moveThreeType)) {
-        return null;
         console.log("One or more move types are not valid.");
+        return null;
     }
 
     if (!validMoveValue(moveOneValue) || !validMoveValue(moveTwoValue) || !validMoveValue(moveThreeValue)) {
-        return null;
         console.log("One or more move values are not valid.");
+        return null;
     }
 
     if (moveOneValue + moveTwoValue + moveThreeValue > 99) {
-        return null;
         console.log("The values cannot sum to more than 99.");
+        return null;
     }
 
     if (player ==="Player One") {
@@ -88,6 +88,7 @@ const getRoundWinner = (round) => {
 // Helper function - determine winner of specific round
 const roundWinnerHelper = (playerOneType, playerOneValue, playerTwoType, playerTwoValue) => {
     if (!playerOneType || !playerOneValue || !playerTwoType || !playerTwoValue) {
+        console.log("One or more variables didn't set correctly in roundWinnerHelper().");
         return null;
     }
 
@@ -142,8 +143,8 @@ const tieBreaker = (playerOneValue, playerTwoValue) => {
 // Main function - return appropriate winner after all three rounds
 const getGameWinner = () => {
     if (!playerOneMoveOneType || !playerOneMoveOneValue || !playerOneMoveTwoType || !playerOneMoveTwoValue || !playerOneMoveThreeType || !playerOneMoveThreeValue || !playerTwoMoveOneType || !playerTwoMoveOneValue || !playerTwoMoveTwoType || !playerTwoMoveTwoValue || !playerTwoMoveThreeType || !playerTwoMoveThreeValue) {
+        console.log("One or more variables didn't set correctly in getGameWinner().");
         return null;
-        console.log("One or more variables didn't set correctly.");
     }
 
     playerOneTotalWins = 0;
